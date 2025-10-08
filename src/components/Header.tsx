@@ -4,8 +4,7 @@ import logo from "../assets/images/peaklogo.jpg";
 const Header = () => {
   const menuItems = [
     { name: "Treatments", to: "treatments" },
-    { name: "Methods", to: "methods" },
-    { name: "Price", to: "price" },
+    { name: "Packages", to: "packages" },
     { name: "Before & After", to: "before-after" },
     { name: "About Us", to: "about" },
   ];
@@ -14,12 +13,18 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <div className="flex-shrink-0">
-            <img src={logo} alt="Peak Hair Turkey" className="h-14 w-auto" />
+          {/* Logo */}
+          <div className="flex-shrink-0 w-[180px]">
+            <img
+              src={logo}
+              alt="Peak Hair Turkey"
+              className="h-12 w-full object-contain scale-125"
+            />
           </div>
 
-          <nav className="hidden md:block">
-            <ul className="flex space-x-8">
+          {/* Navigation */}
+          <nav className="hidden md:block ml-12">
+            <ul className="flex space-x-10">
               {menuItems.map((item) => (
                 <li key={item.to}>
                   <Link
@@ -37,13 +42,15 @@ const Header = () => {
             </ul>
           </nav>
 
-          <button className="bg-navy text-white px-6 py-2 rounded-lg hover:bg-golden transition-colors">
+          {/* Free Consultation Button */}
+          <button className="hidden md:block bg-navy text-white px-6 py-2.5 rounded-lg hover:bg-golden transition-colors">
             Free Consultation
           </button>
 
-          <button className="md:hidden">
+          {/* Mobile Menu Button */}
+          <button className="md:hidden text-navy hover:text-golden transition-colors">
             <svg
-              className="w-6 h-6 text-navy hover:text-golden transition-colors"
+              className="w-6 h-6"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

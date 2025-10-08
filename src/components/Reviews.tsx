@@ -1,8 +1,8 @@
 import { StarIcon } from "@heroicons/react/24/solid";
 import { StarIcon as StarOutline } from "@heroicons/react/24/outline";
-import ad6 from "../assets/images/ad6.jpeg";
-import ad8 from "../assets/images/ad8.jpeg";
-import ad11 from "../assets/images/ad11.jpeg";
+import ad6 from "../assets/images/review.jpeg";
+import ad8 from "../assets/images/review1.jpeg";
+import ad11 from "../assets/images/review2.jpeg";
 
 interface ReviewCardProps {
   name: string;

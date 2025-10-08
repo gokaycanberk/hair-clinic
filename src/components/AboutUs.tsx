@@ -4,7 +4,8 @@ import {
   ClockIcon,
   HeartIcon,
 } from "@heroicons/react/24/outline";
-import ad5 from "../assets/images/ad5.jpeg";
+import nurse from "../assets/images/nurse.jpeg";
+import nurse2 from "../assets/images/nurse2.jpeg";
 import ad6 from "../assets/images/ad6.jpeg";
 
 interface StatCardProps {
@@ -93,7 +94,7 @@ const AboutUs = () => {
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-full overflow-hidden">
                   <img
-                    src={ad5}
+                    src={nurse}
                     alt="Doctor"
                     className="w-full h-full object-cover"
                   />
@@ -108,7 +109,7 @@ const AboutUs = () => {
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-full overflow-hidden">
                   <img
-                    src={ad6}
+                    src={nurse2}
                     alt="Doctor"
                     className="w-full h-full object-cover"
                   />
