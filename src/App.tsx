@@ -1,8 +1,8 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Treatments from "./components/Treatments";
-import Methods from "./components/Methods";
-import Pricing from "./components/Pricing";
+import Reviews from "./components/Reviews";
+import Packages from "./components/Packages";
 import BeforeAfter from "./components/BeforeAfter";
 import AboutUs from "./components/AboutUs";
 import Footer from "./components/Footer";
@@ -14,10 +14,10 @@ function App() {
       <Hero />
       <main>
         <Treatments />
-        <Methods />
-        <Pricing />
+        <Packages />
         <BeforeAfter />
         <AboutUs />
+        <Reviews /> {/* Reviews section moved to bottom */}
       </main>
       <Footer />
     </div>
