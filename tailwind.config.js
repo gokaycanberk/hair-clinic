@@ -4,9 +4,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#0066cc",
-        secondary: "#1a75ff",
-        accent: "#e6f0ff",
+        navy: {
+          DEFAULT: "#1e2c4f",
+          light: "#2a3b64",
+          dark: "#162039",
+        },
+        golden: {
+          DEFAULT: "#f7aa38",
+          light: "#f9bc64",
+          dark: "#e59520",
+        },
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"],

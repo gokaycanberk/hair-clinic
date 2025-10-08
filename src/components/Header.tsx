@@ -15,7 +15,7 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <div className="flex-shrink-0">
-            <img src={logo} alt="Peak Hair Turkey" className="h-12 w-auto" />
+            <img src={logo} alt="Peak Hair Turkey" className="h-14 w-auto" />
           </div>
 
           <nav className="hidden md:block">
@@ -28,7 +28,7 @@ const Header = () => {
                     smooth={true}
                     offset={-80}
                     duration={500}
-                    className="text-gray-600 hover:text-primary cursor-pointer font-medium"
+                    className="text-navy hover:text-golden transition-colors font-medium"
                   >
                     {item.name}
                   </Link>
@@ -37,9 +37,13 @@ const Header = () => {
             </ul>
           </nav>
 
+          <button className="bg-navy text-white px-6 py-2 rounded-lg hover:bg-golden transition-colors">
+            Free Consultation
+          </button>
+
           <button className="md:hidden">
             <svg
-              className="w-6 h-6"
+              className="w-6 h-6 text-navy hover:text-golden transition-colors"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
