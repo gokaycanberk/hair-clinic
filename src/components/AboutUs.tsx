@@ -48,7 +48,7 @@ const AboutUs = () => {
 
   return (
     <section id="about" className="section">
-      <div className="container">
+      <div className="container mx-auto">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
             Leading the Future of Hair Restoration

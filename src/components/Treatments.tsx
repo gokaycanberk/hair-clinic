@@ -1,7 +1,7 @@
-import ad5 from "../assets/images/ad5.jpeg";
-import ad7 from "../assets/images/ad7.jpeg";
-import ad9 from "../assets/images/ad9.jpeg";
-import ad10 from "../assets/images/ad10.jpeg";
+import sapphireFue from "../assets/images/sapphirefuefoto.png";
+import dhi from "../assets/images/choipenphoto.webp";
+import stemCell from "../assets/images/Stemcelltehrapy.jpeg";
+import hairTransplant from "../assets/images/Hair-Transplant.png";
 
 interface TreatmentSectionProps {
   title: string;
@@ -85,7 +85,7 @@ const Treatments = () => {
       title: "Sapphire FUE Hair Transplant",
       description:
         "At Peak, we use the Sapphire FUE method — the latest evolution of the FUE (Follicular Unit Extraction) technique. In this advanced approach, micro-channels are created using real sapphire blades instead of traditional metal slits. This innovation allows for higher graft density, faster healing, and a more natural, seamless hairline.",
-      image: ad5,
+      image: sapphireFue,
       features: [
         "Smaller and smoother micro-channels compared to traditional tools",
         "Denser hair implantation for fuller appearance",
@@ -98,7 +98,7 @@ const Treatments = () => {
       title: "DHI Hair Transplant",
       description:
         "Experience one of the most advanced hair restoration techniques with DHI (Direct Hair Implantation)—a revolutionary method designed to deliver natural, dense, and long-lasting results. Using the specialized Choi pen, we implant hair follicles directly into the scalp, eliminating the need for pre-made channels.",
-      image: ad7,
+      image: dhi,
       features: [
         "Simultaneous extraction and implantation",
         "Natural hairline with perfect angle and depth",
@@ -111,7 +111,7 @@ const Treatments = () => {
       title: "Stem Cell Hair Transplant",
       description:
         "Step into the future of hair restoration with Stem Cell Hair Therapy. This innovative treatment harnesses your body's own healing power to stimulate new hair growth, revitalize existing follicles, and enhance the success of hair transplant procedures. Unlike traditional transplants, stem cell therapy reawakens inactive follicles and repairs the scalp's natural environment from within.",
-      image: ad9,
+      image: stemCell,
       features: [
         "Natural hair regeneration",
         "Boosts transplant success rate",
@@ -152,7 +152,7 @@ const Treatments = () => {
       <section
         className="relative h-[400px] bg-fixed bg-cover bg-center"
         style={{
-          backgroundImage: `url(${ad10})`,
+          backgroundImage: `url(${hairTransplant})`,
         }}
       >
         <div className="absolute inset-0 bg-navy/40" />
