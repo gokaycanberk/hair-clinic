@@ -82,42 +82,42 @@ const TreatmentSection = ({
 const Treatments = () => {
   const treatments = [
     {
-      title: "FUE Hair Transplant",
+      title: "Sapphire FUE Hair Transplant",
       description:
-        "Experience the most advanced FUE (Follicular Unit Extraction) technique that ensures natural-looking results with minimal recovery time. Our expert surgeons use state-of-the-art technology to transplant individual hair follicles for the most natural hairline design.",
+        "At Peak, we use the Sapphire FUE method — the latest evolution of the FUE (Follicular Unit Extraction) technique. In this advanced approach, micro-channels are created using real sapphire blades instead of traditional metal slits. This innovation allows for higher graft density, faster healing, and a more natural, seamless hairline.",
       image: ad5,
       features: [
-        "Minimally invasive procedure",
-        "No linear scarring",
-        "Quick recovery time",
-        "Natural-looking results",
-        "Permanent solution",
+        "Smaller and smoother micro-channels compared to traditional tools",
+        "Denser hair implantation for fuller appearance",
+        "Natural 40–45° growth angle",
+        "Minimized trauma and faster healing",
+        "Reduced risk of scarring and irritation",
       ],
     },
     {
-      title: "Sapphire FUE Method",
+      title: "DHI Hair Transplant",
       description:
-        "The Sapphire FUE method represents the latest innovation in hair transplantation. Using specially designed sapphire blades, we create more precise and smaller incisions, leading to faster healing and better results.",
+        "Experience one of the most advanced hair restoration techniques with DHI (Direct Hair Implantation)—a revolutionary method designed to deliver natural, dense, and long-lasting results. Using the specialized Choi pen, we implant hair follicles directly into the scalp, eliminating the need for pre-made channels.",
       image: ad7,
       features: [
-        "Enhanced precision",
-        "Faster healing process",
-        "Minimal tissue damage",
-        "Better graft survival rate",
-        "Superior aesthetic results",
+        "Simultaneous extraction and implantation",
+        "Natural hairline with perfect angle and depth",
+        "Minimal scarring (0.6-0.9mm incisions)",
+        "Unshaven option available",
+        "Maximum graft survival rate",
       ],
     },
     {
-      title: "DHI Technique",
+      title: "Stem Cell Hair Transplant",
       description:
-        "Direct Hair Implantation (DHI) is a revolutionary technique that allows for simultaneous extraction and implantation of hair follicles. This advanced method provides more precise placement and better angles for the most natural look.",
+        "Step into the future of hair restoration with Stem Cell Hair Therapy. This innovative treatment harnesses your body's own healing power to stimulate new hair growth, revitalize existing follicles, and enhance the success of hair transplant procedures. Unlike traditional transplants, stem cell therapy reawakens inactive follicles and repairs the scalp's natural environment from within.",
       image: ad9,
       features: [
-        "No shaving required",
-        "Precise implantation",
-        "Minimal trauma to scalp",
-        "Dense packing possible",
-        "Faster recovery time",
+        "Natural hair regeneration",
+        "Boosts transplant success rate",
+        "Strengthens existing hair",
+        "Minimally invasive, no scarring",
+        "Long-lasting, progressive results",
       ],
     },
   ];

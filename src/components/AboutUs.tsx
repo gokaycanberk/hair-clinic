@@ -49,28 +49,73 @@ const AboutUs = () => {
   return (
     <section id="about" className="section">
       <div className="container">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
+            Leading the Future of Hair Restoration
+          </h2>
+          <div className="space-y-3">
+            <p className="text-gray-600">
+              Founded by experienced doctors and managed by international health
+              professionals, Peak Hair Transplant stands at the intersection of
+              medical excellence and aesthetic perfection.
+            </p>
+            <p className="text-gray-600">
+              Our Istanbul clinic is approved by the Turkish Ministry of Health,
+              equipped with the latest technology and staffed by a team of
+              specialized surgeons and nurses dedicated to achieving flawless,
+              natural results.
+            </p>
+            <p className="text-gray-600">
+              With our consultation offices in New York City and Berlin, we
+              bring the best of Turkish medical expertise closer to you —
+              wherever you are.
+            </p>
+            <blockquote className="text-primary italic text-md">
+              "Our goal is simple — natural results, minimal downtime, and
+              lifelong confidence."
+            </blockquote>
+          </div>
+        </div>
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold">
-              New York's Premier Hair Transplant Clinic
-            </h2>
-            <div className="space-y-4">
-              <p className="text-gray-600">
-                With over 15 years of experience in hair restoration, Peak Hair
-                Turkey has become a trusted name in providing world-class hair
-                transplant services in New York City.
+            <div className="mt-12">
+              <h3 className="text-2xl font-bold mb-6">Our Mission</h3>
+              <p className="text-gray-600 mb-8">
+                Our mission at Peak Hair Transplant is simple yet powerful — to
+                deliver the most natural, safe, and advanced hair restoration
+                results, tailored to each individual's unique needs. By
+                combining medical excellence, cutting-edge technology like
+                Sapphire FUE, DHI, Stem Cell Hair Transplant Techniques and a
+                patient-first approach, we ensure every person who walks through
+                our doors feels understood, confident, and valued.
               </p>
               <p className="text-gray-600">
-                Our team of expert surgeons combines advanced technology with
-                artistic skill to deliver natural-looking results that exceed
-                expectations. We understand that each patient is unique, which
-                is why we provide personalized treatment plans tailored to
-                individual needs.
+                We don't just restore hair — we restore confidence, self-image,
+                and quality of life.
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-primary text-white px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors">
+            <div className="mt-12">
+              <h3 className="text-2xl font-bold mb-6">Our Vision</h3>
+              <p className="text-gray-600 mb-8">
+                Our vision is to be recognized as a global leader in hair
+                restoration, setting new standards of medical integrity,
+                innovation, and artistry — without boundaries of ethnicity,
+                gender, or geography.
+              </p>
+              <p className="text-gray-600 mb-8">
+                From Istanbul to New York and Berlin, we aim to make world-class
+                Turkish hair transplant expertise accessible to everyone seeking
+                lasting, natural beauty and confidence.
+              </p>
+              <blockquote className="text-primary italic text-lg">
+                "Our vision is to redefine what excellence in hair
+                transplantation looks like — globally."
+              </blockquote>
+            </div>
+
+            <div className="flex flex-col sm:flex-row">
+              <button className="bg-primary text-white py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors">
                 Book Consultation
               </button>
               <a

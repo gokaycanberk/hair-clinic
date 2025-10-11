@@ -1,29 +1,30 @@
 import { Link } from "react-scroll";
-import logo from "../assets/images/peaklogo.jpg";
+import logo from "../assets/images/logosmall.jpg";
 
 const Header = () => {
   const menuItems = [
-    { name: "Treatments", to: "treatments" },
-    { name: "Packages", to: "packages" },
-    { name: "Before & After", to: "before-after" },
     { name: "About Us", to: "about" },
+    { name: "Treatments", to: "treatments" },
+    { name: "Before & After", to: "before-after" },
+    { name: "Packages", to: "packages" },
+    { name: "Financing", to: "financing" },
   ];
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+      <div className="container ml-20">
+        <div className="flex items-center h-20">
           {/* Logo */}
-          <div className="flex-shrink-0 w-[180px]">
+          <Link to="home" className="flex-shrink-0">
             <img
               src={logo}
               alt="Peak Hair Turkey"
-              className="h-12 w-full object-contain scale-125"
+              className="h-12 object-contain"
             />
-          </div>
+          </Link>
 
           {/* Navigation */}
-          <nav className="hidden md:block ml-12">
+          <nav className="hidden md:block ml-auto mr-10">
             <ul className="flex space-x-10">
               {menuItems.map((item) => (
                 <li key={item.to}>

@@ -6,6 +6,7 @@ import Packages from "./components/Packages";
 import BeforeAfter from "./components/BeforeAfter";
 import AboutUs from "./components/AboutUs";
 import Footer from "./components/Footer";
+import Financing from "./components/Financing";
 
 function App() {
   return (
@@ -13,11 +14,12 @@ function App() {
       <Header />
       <Hero />
       <main>
-        <Treatments />
-        <Packages />
-        <BeforeAfter />
         <AboutUs />
-        <Reviews /> {/* Reviews section moved to bottom */}
+        <Treatments />
+        <BeforeAfter />
+        <Packages />
+        <Financing />
+        <Reviews />
       </main>
       <Footer />
     </div>
