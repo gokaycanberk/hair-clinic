@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { StarIcon } from "@heroicons/react/24/solid";
 import { StarIcon as StarOutline } from "@heroicons/react/24/outline";
 import ad6 from "../assets/images/review.jpeg";
 import ad8 from "../assets/images/review1.jpeg";
 import ad11 from "../assets/images/review2.jpeg";
+import review3 from "../assets/images/review3.jpeg";
 
 interface ReviewCardProps {
   name: string;
@@ -36,7 +38,11 @@ const ReviewCard = ({
       </div>
       <div>
         <div className="flex items-center gap-2">
-          <h3 className="font-semibold text-navy">{name}</h3>
+          <h3 className="font-semibold text-navy">
+            {name.split(" ")[0]} {/* First name */}
+            <span className="opacity-50">{name.split(" ")[1]}</span>{" "}
+            {/* Last initial with reduced opacity */}
+          </h3>
           {verified && (
             <svg
               className="w-4 h-4 text-blue-500"
@@ -69,33 +75,60 @@ const ReviewCard = ({
 );
 
 const Reviews = () => {
-  const reviews = [
+  const [expandLevel, setExpandLevel] = useState(0); // 0: initial 3, 1: all 6
+
+  const allReviews = [
     {
-      name: "Michael Thompson",
-      location: "New York, USA",
+      name: "Michael R.",
+      location: "New York, NY",
       rating: 5,
       date: "2 months ago",
       review:
-        "I had my procedure at Peak Hair Turkey and I couldn't be happier with the results. The team was professional, caring, and the results exceeded my expectations. The whole process from consultation to aftercare was seamless.",
+        "The team at Peak Hair made me feel so comfortable throughout the whole process. My new hairline looks amazing and natural. Really glad I took this step!",
       image: ad6,
     },
     {
-      name: "David Martinez",
-      location: "Los Angeles, USA",
+      name: "James S.",
+      location: "Los Angeles, CA",
       rating: 5,
       date: "1 month ago",
       review:
-        "Best decision I've ever made! The staff was incredibly knowledgeable and made me feel comfortable throughout the entire process. The facility is state-of-the-art and the results are amazing.",
+        "After researching many clinics, I chose Peak Hair and couldn't be happier. The staff treated me like family and the results are incredible. Worth every penny!",
       image: ad8,
     },
     {
-      name: "James Wilson",
-      location: "Chicago, USA",
+      name: "Robert B.",
+      location: "Miami, FL",
       rating: 5,
       date: "3 months ago",
       review:
-        "From start to finish, my experience with Peak Hair Turkey was exceptional. The results look completely natural, and the recovery was much easier than I expected. Highly recommend!",
+        "Worried about the procedure at first, but it was so much easier than expected. The team was professional and my hair looks great now!",
       image: ad11,
+    },
+    {
+      name: "Sarah K.",
+      location: "San Francisco, CA",
+      rating: 5,
+      date: "2 weeks ago",
+      review:
+        "As a woman dealing with hair loss, I was really self-conscious. The team was so understanding and gentle. Now my hair looks full and natural again, I feel like myself!",
+      image: review3,
+    },
+    {
+      name: "Alexander L.",
+      location: "New York, NY",
+      rating: 5,
+      date: "1 month ago",
+      review:
+        "Wish I had done it sooner! The procedure was relaxing and the team was great. My confidence is through the roof now.",
+    },
+    {
+      name: "William H.",
+      location: "Los Angeles, CA",
+      rating: 5,
+      date: "2 months ago",
+      review:
+        "They were honest about what to expect and delivered exactly what they promised. No regrets!",
     },
   ];
 
@@ -146,25 +179,22 @@ const Reviews = () => {
         </div>
 
         {/* Reviews Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {reviews.map((review, index) => (
-            <ReviewCard key={index} {...review} />
-          ))}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)]">
+          {(expandLevel === 0 ? allReviews.slice(0, 3) : allReviews).map(
+            (review, index) => (
+              <ReviewCard key={index} {...review} />
+            )
+          )}
         </div>
 
-        {/* Google Review Button */}
+        {/* See More Reviews Button */}
         <div className="text-center mt-12">
-          <a
-            href="https://g.page/r/peak-hair-turkey/review"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-white text-navy border-2 border-navy px-6 py-3 rounded-lg hover:bg-navy hover:text-white transition-colors"
+          <button
+            onClick={() => setExpandLevel(expandLevel === 0 ? 1 : 0)}
+            className="inline-flex items-center gap-2 bg-white text-navy border-2 border-navy px-8 py-4 rounded-xl font-medium hover:bg-navy hover:text-white transition-all duration-300"
           >
-            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0zm-1.504 16.583h2.785v-2.786h-2.785v2.786zM12 5.77c-2.531 0-4.584 2.053-4.584 4.584h2.785c0-0.993 0.806-1.799 1.799-1.799s1.799 0.806 1.799 1.799c0 1.799-2.785 1.574-2.785 4.584h2.785c0-2.087 2.785-2.311 2.785-4.584 0-2.531-2.053-4.584-4.584-4.584z" />
-            </svg>
-            Write a Review
-          </a>
+            {expandLevel === 0 ? "See More Reviews" : "Show Less"}
+          </button>
         </div>
       </div>
     </section>

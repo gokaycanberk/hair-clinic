@@ -27,6 +27,18 @@ export default {
           xl: "5rem",
         },
       },
+      boxShadow: {
+        "3xl": "0 35px 60px -15px rgba(0, 0, 0, 0.3)",
+      },
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: "0", transform: "translateY(10px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+      },
+      animation: {
+        fadeIn: "fadeIn 0.8s ease-out forwards",
+      },
     },
   },
   plugins: [require("@tailwindcss/aspect-ratio")],
