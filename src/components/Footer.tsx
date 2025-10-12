@@ -40,8 +40,8 @@ const Footer = () => {
     },
     {
       icon: <MapPinIcon className="w-5 h-5" />,
-      text: "123 Medical Center, Manhattan, NYC",
-      link: "https://maps.google.com",
+      text: "36 Madison Ave Suite 507 New York, Ny 10016",
+      link: "https://maps.app.goo.gl/ABdBLjpQDp6j1r47A",
     },
     {
       icon: <ClockIcon className="w-5 h-5" />,
@@ -50,24 +50,24 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#1e2c4f] text-white pt-12 pb-6">
+    <footer className="bg-[#1e2c4f] text-white pt-12 pb-6 px-4 md:px-6">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo and About Column */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-2">
+          <div className="space-y-4 text-center md:text-left">
+            <div className="flex items-center justify-center md:justify-start gap-2">
               <img
                 src={peakLogo}
                 alt="Peak Hair"
-                className="h-24 w-auto rounded-lg"
+                className="h-20 md:h-24 w-auto rounded-lg"
               />
             </div>
             <p className="text-gray-300">
-              Leading hair transplant clinic in NYC, providing world-class
-              treatments with experienced professionals. Trust our team for
-              natural-looking results.
+              Official consultation office of Istanbul’s leading hair transplant
+              clinic. Free in-person consultations in NYC & Berlin for
+              world-class, natural-looking results.
             </p>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center justify-center md:justify-start gap-4">
               <a
                 href="https://www.instagram.com/peakhairturkey/"
                 target="_blank"
@@ -84,7 +84,7 @@ const Footer = () => {
                 </svg>
               </a>
               <a
-                href="https://www.facebook.com/peakhairturkey"
+                href="https://www.facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-golden transition-all duration-300"
@@ -102,11 +102,11 @@ const Footer = () => {
           </div>
 
           {/* Quick Links Column */}
-          <div>
+          <div className="text-center md:text-left">
             <h4 className="text-xl font-semibold mb-4 text-golden">
               Quick Links
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-3 flex flex-col items-center md:items-start">
               {quickLinks.map((link) => (
                 <li key={link.to}>
                   {isHomePage ? (
@@ -136,11 +136,11 @@ const Footer = () => {
           </div>
 
           {/* Treatments Column */}
-          <div>
+          <div className="text-center md:text-left">
             <h4 className="text-xl font-semibold mb-4 text-golden">
               Our Treatments
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-3 flex flex-col items-center md:items-start">
               {treatments.map((treatment) => (
                 <li key={treatment.path}>
                   <RouterLink
@@ -156,11 +156,11 @@ const Footer = () => {
           </div>
 
           {/* Contact Info Column */}
-          <div>
+          <div className="text-center md:text-left">
             <h4 className="text-xl font-semibold mb-4 text-golden">
               Contact Info
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-3 flex flex-col items-center md:items-start">
               {contactInfo.map((info, index) => (
                 <li key={index} className="flex items-center gap-3">
                   <span className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
@@ -189,7 +189,7 @@ const Footer = () => {
               © {new Date().getFullYear()} Peak Hair Turkey. All rights
               reserved.
             </p>
-            <div className="flex items-center gap-8">
+            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8">
               <RouterLink
                 to="/privacy-policy"
                 className="text-gray-300 hover:text-golden text-sm transition-colors"

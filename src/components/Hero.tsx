@@ -15,26 +15,26 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative h-full flex items-center">
-        <div className="container mx-auto px-0">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-3xl text-white">
             {/* Headline Section */}
-            <div className="mb-10">
-              <h1 className="text-6xl md:text-7xl font-bold mb-3 leading-tight">
+            <div className="mb-8 md:mb-10">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-3 leading-tight">
                 Peak Hair
                 <span className="block">Transplant</span>
               </h1>
-              <div className="h-0.5 w-24 bg-golden mb-6"></div>
-              <h2 className="text-2xl md:text-3xl text-white/90 font-light tracking-wide">
+              <div className="h-0.5 w-16 md:w-24 bg-golden mb-4 md:mb-6"></div>
+              <h2 className="text-xl sm:text-2xl md:text-3xl text-white/90 font-light tracking-wide">
                 Where Expertise Meets Excellence
               </h2>
             </div>
 
             {/* Description */}
-            <div className="space-y-6">
-              <p className="text-2xl text-white/90">
+            <div className="space-y-4 md:space-y-6">
+              <p className="text-xl sm:text-2xl text-white/90">
                 Rediscover your confidence with natural, permanent results.
               </p>
-              <p className="text-lg text-gray-200">
+              <p className="text-base sm:text-lg text-gray-200 max-w-2xl">
                 At Peak Hair Transplant, we combine Turkish surgical expertise
                 with world class care offering cutting edge techniques in
                 Istanbul, and personalized consultations in New York and Berlin.
@@ -43,22 +43,22 @@ const Hero = () => {
           </div>
 
           {/* Bottom Content */}
-          <div className="absolute bottom-0 left-0 right-0 mb-24">
-            <div className="container px-0">
-              <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="absolute bottom-0 left-0 right-0 mb-12 sm:mb-16 md:mb-24">
+            <div className="container mx-auto px-4 md:px-6 lg:px-8">
+              <div className="flex flex-col md:flex-row justify-between items-center gap-8 md:gap-4">
                 {/* CTA Buttons */}
-                <div className="flex gap-4 md:pl-0">
-                  <button className="bg-golden text-white px-3 py-3 rounded-lg font-medium hover:bg-golden/90 transition-colors w-40 text-base">
+                <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                  <button className="w-full sm:w-40 bg-golden text-white px-3 py-3 rounded-lg font-medium hover:bg-golden/90 transition-colors text-base">
                     Free Consultation
                   </button>
-                  <button className="bg-white/10 text-white border border-white/20 px-3 py-3 rounded-lg font-medium hover:bg-white/20 transition-colors w-40 text-base backdrop-blur-sm">
+                  <button className="w-full sm:w-40 bg-white/10 text-white border border-white/20 px-3 py-3 rounded-lg font-medium hover:bg-white/20 transition-colors text-base backdrop-blur-sm">
                     Our Treatments
                   </button>
                 </div>
 
                 {/* Trust Line */}
-                <div className="bg-white/10 backdrop-blur-sm px-4 py-3 rounded-2xl">
-                  <p className="text-lg text-white/90 italic">
+                <div className="bg-white/10 backdrop-blur-sm px-4 py-3 rounded-2xl w-full sm:w-auto text-center sm:text-left">
+                  <p className="text-base sm:text-lg text-white/90 italic">
                     "Your journey starts with trust, innovation, and artistry."
                   </p>
                 </div>

@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import { Link as RouterLink, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import logo from "../assets/images/logosmall.jpg";
 
 const Header = () => {
   const [scrollY, setScrollY] = useState(0);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -101,7 +103,11 @@ const Header = () => {
           </nav>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden text-navy hover:text-golden transition-colors">
+          <motion.button
+            className="md:hidden text-navy hover:text-golden transition-colors"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            whileTap={{ scale: 0.95 }}
+          >
             <svg
               className="w-6 h-6"
               fill="none"
@@ -112,11 +118,82 @@ const Header = () => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
+                d={
+                  isMobileMenuOpen
+                    ? "M6 18L18 6M6 6l12 12"
+                    : "M4 6h16M4 12h16M4 18h16"
+                }
               />
             </svg>
-          </button>
+          </motion.button>
         </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="absolute top-full left-0 right-0 bg-white shadow-lg md:hidden"
+            >
+              <div className="container mx-auto px-4 py-4">
+                <ul className="space-y-2">
+                  {menuItems.map((item) => (
+                    <li key={item.to}>
+                      {isHomePage ? (
+                        <ScrollLink
+                          to={item.to}
+                          spy={true}
+                          smooth={true}
+                          offset={-80}
+                          duration={500}
+                          className="block py-3 text-navy hover:text-golden transition-colors font-medium"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {item.name}
+                        </ScrollLink>
+                      ) : (
+                        <RouterLink
+                          to="/"
+                          className="block py-3 text-navy hover:text-golden transition-colors font-medium"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {item.name}
+                        </RouterLink>
+                      )}
+
+                      {/* Mobile Dropdown for Treatments */}
+                      {item.subItems && (
+                        <ul className="pl-4 mt-1 space-y-2 border-l-2 border-gray-100">
+                          {item.subItems.map((subItem) => (
+                            <li key={subItem.path}>
+                              <RouterLink
+                                to={subItem.path}
+                                className="block py-2 text-navy hover:text-golden transition-colors"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                              >
+                                {subItem.name}
+                              </RouterLink>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Mobile Free Consultation Button */}
+                <div className="mt-4">
+                  <button className="w-full bg-navy text-white px-6 py-3 rounded-lg hover:bg-golden transition-colors text-center font-medium">
+                    Free Consultation
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   );
