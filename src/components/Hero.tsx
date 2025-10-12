@@ -1,6 +1,9 @@
+import { useState } from "react";
 import heroImage from "../assets/images/hero.jpeg";
+import ConsultationModal from "./ConsultationModal";
 
 const Hero = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <div className="relative h-screen">
       {/* Background Image & Overlay */}
@@ -48,7 +51,10 @@ const Hero = () => {
               <div className="flex flex-col md:flex-row justify-between items-center gap-8 md:gap-4">
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                  <button className="w-full sm:w-40 bg-golden text-white px-3 py-3 rounded-lg font-medium hover:bg-golden/90 transition-colors text-base">
+                  <button
+                    onClick={() => setIsModalOpen(true)}
+                    className="w-full sm:w-40 bg-golden text-white px-3 py-3 rounded-lg font-medium hover:bg-golden/90 transition-colors text-base"
+                  >
                     Free Consultation
                   </button>
                   <button className="w-full sm:w-40 bg-white/10 text-white border border-white/20 px-3 py-3 rounded-lg font-medium hover:bg-white/20 transition-colors text-base backdrop-blur-sm">
@@ -67,6 +73,12 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
+      {/* Consultation Modal */}
+      <ConsultationModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 };

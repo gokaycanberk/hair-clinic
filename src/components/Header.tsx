@@ -3,10 +3,12 @@ import { Link as ScrollLink } from "react-scroll";
 import { Link as RouterLink, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "../assets/images/logosmall.jpg";
+import ConsultationModal from "./ConsultationModal";
 
 const Header = () => {
   const [scrollY, setScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -97,7 +99,10 @@ const Header = () => {
             </ul>
 
             {/* Free Consultation Button */}
-            <button className="bg-navy text-white px-6 py-2 rounded-lg hover:bg-golden transition-colors">
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="bg-navy text-white px-6 py-2 rounded-lg hover:bg-golden transition-colors"
+            >
               Free Consultation
             </button>
           </nav>
@@ -186,7 +191,13 @@ const Header = () => {
 
                 {/* Mobile Free Consultation Button */}
                 <div className="mt-4">
-                  <button className="w-full bg-navy text-white px-6 py-3 rounded-lg hover:bg-golden transition-colors text-center font-medium">
+                  <button
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      setIsModalOpen(true);
+                    }}
+                    className="w-full bg-navy text-white px-6 py-3 rounded-lg hover:bg-golden transition-colors text-center font-medium"
+                  >
                     Free Consultation
                   </button>
                 </div>
@@ -195,6 +206,12 @@ const Header = () => {
           )}
         </AnimatePresence>
       </div>
+
+      {/* Consultation Modal */}
+      <ConsultationModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </header>
   );
 };

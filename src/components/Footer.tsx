@@ -30,8 +30,8 @@ const Footer = () => {
   const contactInfo = [
     {
       icon: <PhoneIcon className="w-5 h-5" />,
-      text: "+1 (555) 123-4567",
-      link: "tel:+15551234567",
+      text: "+1-646-667-3919",
+      link: "tel:+16466673919",
     },
     {
       icon: <EnvelopeIcon className="w-5 h-5" />,
