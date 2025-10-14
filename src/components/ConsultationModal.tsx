@@ -82,7 +82,7 @@ const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
 
               {/* WhatsApp Button */}
               <a
-                href="https://wa.me/+901234567890"
+                href="https://wa.me/+16466673919"
                 className="flex items-center justify-center gap-2 w-full bg-[#25D366] text-white py-4 rounded-lg hover:bg-[#22c55e] transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"

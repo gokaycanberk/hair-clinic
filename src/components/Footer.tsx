@@ -36,7 +36,7 @@ const Footer = () => {
     {
       icon: <EnvelopeIcon className="w-5 h-5" />,
       text: "info@peakhairtransplant.com",
-      link: "mailto:info@peakhairturkey.com",
+      link: "mailto:info@peakhairtransplant.com",
     },
     {
       icon: <MapPinIcon className="w-5 h-5" />,
@@ -186,7 +186,7 @@ const Footer = () => {
         <div className="mt-10 pt-6 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-300 text-sm">
-              © {new Date().getFullYear()} Peak Hair Turkey. All rights
+              © {new Date().getFullYear()} Peak Hair Translpant. All rights
               reserved.
             </p>
             <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8">
