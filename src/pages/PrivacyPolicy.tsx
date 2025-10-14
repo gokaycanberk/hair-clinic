@@ -93,8 +93,8 @@ const PrivacyPolicy = () => {
             us:
           </p>
           <ul className="list-disc pl-6 mb-6">
-            <li>By email: info@peakhairturkey.com</li>
-            <li>By phone: +1 (555) 123-4567</li>
+            <li>Email: info@peakhairtransplant.com</li>
+            <li>Phone: +1-646-667-3919</li>
           </ul>
         </div>
       </main>

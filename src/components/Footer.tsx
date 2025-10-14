@@ -35,12 +35,12 @@ const Footer = () => {
     },
     {
       icon: <EnvelopeIcon className="w-5 h-5" />,
-      text: "info@peakhairturkey.com",
+      text: "info@peakhairtransplant.com",
       link: "mailto:info@peakhairturkey.com",
     },
     {
       icon: <MapPinIcon className="w-5 h-5" />,
-      text: "36 Madison Ave Suite 507 New York, Ny 10016",
+      text: "136 Madison Ave, Suite 507 New York, Ny 100016",
       link: "https://maps.app.goo.gl/ABdBLjpQDp6j1r47A",
     },
     {

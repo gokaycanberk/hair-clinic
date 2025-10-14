@@ -1,20 +1,39 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import heroImage from "../assets/images/hero.jpeg";
 import ConsultationModal from "./ConsultationModal";
 
 const Hero = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  // Preload the image
+  useEffect(() => {
+    const img = new Image();
+    img.src = heroImage;
+    img.onload = () => setImageLoaded(true);
+  }, []);
+
   return (
-    <div className="relative h-screen">
+    <div className="relative h-screen bg-navy">
       {/* Background Image & Overlay */}
       <div className="absolute inset-0">
         <img
           src={heroImage}
           alt="Peak Hair Transplant"
-          className="w-full h-full object-cover object-top"
+          className={`w-full h-full object-cover object-top transition-opacity duration-500 ${
+            imageLoaded ? "opacity-100" : "opacity-0"
+          }`}
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-navy/60" />
       </div>
+
+      {/* Loading placeholder - only shown until image loads */}
+      {!imageLoaded && (
+        <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy/95 to-navy/90 animate-pulse" />
+      )}
 
       {/* Content */}
       <div className="relative h-full flex items-center">

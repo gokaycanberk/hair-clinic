@@ -98,8 +98,8 @@ const CookiePolicy = () => {
             one of our preferred contact methods:
           </p>
           <ul className="list-disc pl-6 mb-6">
-            <li>Email: info@peakhairturkey.com</li>
-            <li>Phone: +1 (555) 123-4567</li>
+            <li>Email: info@peakhairtransplant.com</li>
+            <li>Phone: +1-646-667-3919</li>
           </ul>
         </div>
       </main>
