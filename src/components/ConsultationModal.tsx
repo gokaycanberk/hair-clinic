@@ -18,7 +18,7 @@ const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
 
     try {
       const form = e.currentTarget;
-      const response = await fetch("https://formspree.io/f/meorpoqq", {
+      const response = await fetch("https://formspree.io/f/xanplawv", {
         method: "POST",
         body: new FormData(form),
         headers: {
