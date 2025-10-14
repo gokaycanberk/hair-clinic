@@ -36,11 +36,11 @@ const Hero = () => {
       )}
 
       {/* Content */}
-      <div className="relative h-full flex items-center">
+      <div className="relative h-full flex items-center sm:items-center pt-16 sm:pt-0">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-3xl text-white">
             {/* Headline Section */}
-            <div className="mb-8 md:mb-10">
+            <div className="mb-8 sm:mb-8 md:mb-10">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-3 leading-tight">
                 Peak Hair
                 <span className="block">Transplant</span>
@@ -52,7 +52,7 @@ const Hero = () => {
             </div>
 
             {/* Description */}
-            <div className="space-y-4 md:space-y-6">
+            <div className="space-y-3 sm:space-y-4 md:space-y-6">
               <p className="text-xl sm:text-2xl text-white/90">
                 Rediscover your confidence with natural, permanent results.
               </p>
@@ -65,11 +65,11 @@ const Hero = () => {
           </div>
 
           {/* Bottom Content */}
-          <div className="absolute bottom-0 left-0 right-0 mb-12 sm:mb-16 md:mb-24">
+          <div className="absolute bottom-0 left-0 right-0 mb-8 sm:mb-16 md:mb-24">
             <div className="container mx-auto px-4 md:px-6 lg:px-8">
-              <div className="flex flex-col md:flex-row justify-between items-center gap-8 md:gap-4">
+              <div className="flex flex-col md:flex-row justify-between items-center gap-6 sm:gap-8 md:gap-4">
                 {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
                   <button
                     onClick={() => setIsModalOpen(true)}
                     className="w-full sm:w-40 bg-golden text-white px-3 py-3 rounded-lg font-medium hover:bg-golden/90 transition-colors text-base"
@@ -83,7 +83,7 @@ const Hero = () => {
 
                 {/* Trust Line */}
                 <div className="bg-white/10 backdrop-blur-sm px-4 py-3 rounded-2xl w-full sm:w-auto text-center sm:text-left">
-                  <p className="text-base sm:text-lg text-white/90 italic">
+                  <p className="text-sm sm:text-base md:text-lg text-white/90 italic">
                     "Your journey starts with trust, innovation, and artistry."
                   </p>
                 </div>
