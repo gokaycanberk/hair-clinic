@@ -1,176 +1,203 @@
 import { useState } from "react";
-import case1 from "../assets/images/before-afters/1/1.png";
-import case2 from "../assets/images/before-afters/2/1.png";
-import case3 from "../assets/images/before-afters/3/1.png";
-import case4 from "../assets/images/before-afters/4/1.png";
-import case5 from "../assets/images/before-afters/5/1.png";
-import case6 from "../assets/images/before-afters/6/1.png";
-import case7 from "../assets/images/before-afters/7/1.png";
-import case8 from "../assets/images/before-afters/8/1.png";
-import case9 from "../assets/images/before-afters/9/1.png";
 
-interface BeforeAfterImageProps {
-  image: string;
-  month: number;
-  grafts: number;
-  method: "FUE" | "DHI";
-}
-
-const BeforeAfterImage = ({
-  image,
-  month,
-  grafts,
-  method,
-}: BeforeAfterImageProps) => {
-  return (
-    <div className="relative group animate-fadeIn">
-      {/* Main Container */}
-      <div className="rounded-3xl overflow-hidden shadow-2xl transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] transform hover:scale-[1.02] hover:shadow-3xl">
-        {/* Image Container */}
-        <div className="relative">
-          <img
-            src={image}
-            alt={`${method} ${grafts} Grafts - ${month} Months After`}
-            className="w-full h-full object-cover"
-          />
-          {/* Info Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-            <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-              <p className="font-semibold">{method} Treatment</p>
-              <p>{grafts} Grafts</p>
-              <p>{month} Months After</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
+// Before-After görselleri - 1'den 14'e kadar TÜM görseller
+import ba1 from "../assets/images/before-afters/1/1.png";
+import ba2 from "../assets/images/before-afters/2/1.png";
+import ba3 from "../assets/images/before-afters/3/1.png";
+import ba4 from "../assets/images/before-afters/4/1.png";
+import ba5 from "../assets/images/before-afters/5/1.png";
+import ba6 from "../assets/images/before-afters/6/1.png";
+import ba7 from "../assets/images/before-afters/7/1.png";
+import ba8 from "../assets/images/before-afters/8/1.png";
+import ba9 from "../assets/images/before-afters/9/1.png";
+import ba10 from "../assets/images/before-afters/10/1.png";
+import ba11 from "../assets/images/before-afters/11/1.png";
+import ba12 from "../assets/images/before-afters/12/1.png";
+import ba13 from "../assets/images/before-afters/13/1.png";
+import ba14 from "../assets/images/before-afters/14/1.png";
 
 const BeforeAfter = () => {
-  const [expandLevel, setExpandLevel] = useState(0); // 0: initial 3, 1: 6 items, 2: all 9 items
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [, setForceUpdate] = useState(0);
 
-  const allResults = [
-    {
-      id: "001",
-      image: case1,
-      month: 8,
-      grafts: 3700,
-      method: "DHI" as const,
-    },
-    {
-      id: "002",
-      image: case2,
-      month: 7,
-      grafts: 3500,
-      method: "DHI" as const,
-    },
-    {
-      id: "003",
-      image: case3,
-      month: 6,
-      grafts: 2600,
-      method: "FUE" as const,
-    },
-    {
-      id: "004",
-      image: case4,
-      month: 9,
-      grafts: 3200,
-      method: "DHI" as const,
-    },
-    {
-      id: "005",
-      image: case5,
-      month: 8,
-      grafts: 3800,
-      method: "FUE" as const,
-    },
-    {
-      id: "006",
-      image: case6,
-      month: 7,
-      grafts: 3400,
-      method: "DHI" as const,
-    },
-    {
-      id: "007",
-      image: case7,
-      month: 8,
-      grafts: 3600,
-      method: "FUE" as const,
-    },
-    {
-      id: "008",
-      image: case8,
-      month: 9,
-      grafts: 3300,
-      method: "DHI" as const,
-    },
-    {
-      id: "009",
-      image: case9,
-      month: 7,
-      grafts: 3500,
-      method: "FUE" as const,
-    },
+  // Görseller listesi - 14 adet before-after
+  const results = [
+    { image: ba1, month: 8, title: "Case Study 1" },
+    { image: ba2, month: 7, title: "Case Study 2" },
+    { image: ba3, month: 6.5, title: "Case Study 3" },
+    { image: ba4, month: 9, title: "Case Study 4" },
+    { image: ba5, month: 8, title: "Case Study 5" },
+    { image: ba6, month: 9, title: "Case Study 6" },
+    { image: ba7, month: 6.5, title: "Case Study 7" },
+    { image: ba8, month: 8, title: "Case Study 8" },
+    { image: ba9, month: 7, title: "Case Study 9" },
+    { image: ba10, month: 8.5, title: "Case Study 10" },
+    { image: ba11, month: 9, title: "Case Study 11" },
+    { image: ba12, month: 7.5, title: "Case Study 12" },
+    { image: ba13, month: 8, title: "Case Study 13" },
+    { image: ba14, month: 8.5, title: "Case Study 14" },
   ];
 
-  const getVisibleResults = () => {
-    switch (expandLevel) {
-      case 0:
-        return allResults.slice(0, 3);
-      case 1:
-        return allResults.slice(0, 6);
-      case 2:
-        return allResults;
-      default:
-        return allResults.slice(0, 3);
-    }
+  // Sonraki slide - Infinite loop
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % results.length);
+    setForceUpdate((prev) => prev + 1);
   };
 
-  const handleExpandClick = () => {
-    setExpandLevel((prevLevel) => {
-      if (prevLevel === 2) return 0; // If fully expanded, collapse to initial state
-      return prevLevel + 1; // Otherwise expand to next level
-    });
+  // Önceki slide - Infinite loop
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + results.length) % results.length);
+    setForceUpdate((prev) => prev + 1);
   };
 
-  const getButtonText = () => {
-    if (expandLevel === 2) return "Show Less";
-    return "View More Results";
+  // Gösterilecek görseller sayısı - Responsive
+  const getSlidesPerView = () => {
+    if (typeof window === "undefined") return 3;
+    return window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
   };
+
+  const slidesPerView = getSlidesPerView();
 
   return (
-    <section id="before-after" className="section bg-gray-50">
-      <div className="container">
+    <section
+      id="before-after"
+      className="py-20 bg-gradient-to-b from-white to-gray-50"
+    >
+      <div className="container mx-auto px-4">
+        {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-navy mb-4">
-            Before & After Results
+          <h2 className="text-4xl md:text-5xl font-bold text-navy mb-4">
+            Before & After
+            <span className="block text-golden mt-2">Real Results</span>
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            See the amazing transformations of our satisfied patients.
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            See the amazing transformations of our satisfied patients. Real
+            results, real confidence.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20 transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] transform-gpu">
-          {getVisibleResults().map((result) => (
-            <BeforeAfterImage
-              key={result.id}
-              image={result.image}
-              month={result.month}
-              grafts={result.grafts}
-              method={result.method}
-            />
-          ))}
+        {/* Carousel Container */}
+        <div className="relative max-w-7xl mx-auto">
+          {/* Navigation Buttons - Her zaman aktif (infinite) */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-4 rounded-full shadow-xl transition-all duration-300 -translate-x-6 bg-white hover:bg-golden hover:text-white text-navy"
+            aria-label="Previous"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+
+          <button
+            onClick={nextSlide}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-4 rounded-full shadow-xl transition-all duration-300 translate-x-6 bg-white hover:bg-golden hover:text-white text-navy"
+            aria-label="Next"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+
+          {/* Slides Wrapper - Classic Carousel */}
+          <div className="overflow-hidden">
+            <div
+              className="flex transition-transform duration-500 ease-out gap-6"
+              style={{
+                transform: `translateX(-${
+                  currentIndex * (100 / slidesPerView)
+                }%)`,
+              }}
+            >
+              {results.map((result, idx) => (
+                <div
+                  key={idx}
+                  className="flex-shrink-0"
+                  style={{
+                    width: `calc(${100 / slidesPerView}% - ${
+                      ((slidesPerView - 1) * 24) / slidesPerView
+                    }px)`,
+                  }}
+                >
+                  {/* Card Container */}
+                  <div className="bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl h-full flex flex-col">
+                    {/* Image Container - Tam görünüm, kesme yok */}
+                    <div className="relative w-full bg-gray-50 flex-1">
+                      <img
+                        src={result.image}
+                        alt={result.title || `Before & After Result ${idx + 1}`}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+
+                    {/* Info Section */}
+                    <div className="p-6 bg-gradient-to-r from-navy to-navy/90">
+                      <div className="flex items-center justify-between text-white">
+                        <div>
+                          <p className="text-sm font-medium text-golden mb-1">
+                            {result.title}
+                          </p>
+                          <p className="text-xl font-bold">
+                            {result.month} Months Result
+                          </p>
+                        </div>
+                        <div className="bg-golden/20 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                          <span className="text-xs font-semibold">
+                            ✓ Verified
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Indicators */}
+          <div className="flex justify-center items-center gap-2 mt-12">
+            {results.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentIndex(idx)}
+                className={`transition-all duration-300 rounded-full ${
+                  idx === currentIndex
+                    ? "bg-golden w-8 h-2"
+                    : "bg-gray-300 w-2 h-2 hover:bg-gray-400"
+                }`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
         </div>
 
-        <div className="text-center">
-          <button
-            onClick={handleExpandClick}
-            className="bg-navy hover:bg-navy/90 text-white px-10 py-4 rounded-xl font-medium transition-colors"
-          >
-            {getButtonText()}
+        {/* Bottom CTA */}
+        <div className="text-center mt-16">
+          <p className="text-gray-600 mb-6 text-lg">
+            Ready to start your own transformation journey?
+          </p>
+          <button className="bg-golden hover:bg-golden/90 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg">
+            Get Your Free Consultation
           </button>
         </div>
       </div>

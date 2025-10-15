@@ -41,7 +41,7 @@ const Footer = () => {
     {
       icon: <MapPinIcon className="w-5 h-5" />,
       text: "136 Madison Ave, Suite 507 New York, Ny 100016",
-      link: "https://maps.app.goo.gl/ABdBLjpQDp6j1r47A",
+      link: "https://maps.app.goo.gl/mhBv9xczYcjhqH7z7",
     },
     {
       icon: <ClockIcon className="w-5 h-5" />,
