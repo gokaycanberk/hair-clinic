@@ -1,7 +1,9 @@
+import { useState } from "react";
 import sapphireFue from "../assets/images/sapphirefuefoto.png";
 import dhi from "../assets/images/choipenphoto.webp";
 import stemCell from "../assets/images/Stemcelltehrapy.jpeg";
 import hairTransplant from "../assets/images/Hair-Transplant.png";
+import ConsultationModal from "./ConsultationModal";
 
 interface TreatmentSectionProps {
   title: string;
@@ -80,6 +82,7 @@ const TreatmentSection = ({
 );
 
 const Treatments = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const treatments = [
     {
       title: "Sapphire FUE Hair Transplant",
@@ -165,12 +168,21 @@ const Treatments = () => {
               Join thousands of satisfied patients who have restored their
               confidence with our expert hair transplant procedures.
             </p>
-            <button className="bg-golden text-white px-8 py-4 rounded-lg hover:bg-golden-dark transition-colors">
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="bg-golden text-white px-8 py-4 rounded-lg hover:bg-golden/90 transition-colors"
+            >
               Schedule Your Free Consultation
             </button>
           </div>
         </div>
       </section>
+
+      {/* Consultation Modal */}
+      <ConsultationModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </>
   );
 };
