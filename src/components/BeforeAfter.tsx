@@ -1,5 +1,4 @@
-import { useState } from "react";
-import ConsultationModal from "./ConsultationModal";
+import { useState, useEffect } from "react";
 
 // Before-After görselleri - 1'den 14'e kadar TÜM görseller
 import ba1 from "../assets/images/before-afters/1/1.png";
@@ -19,8 +18,20 @@ import ba14 from "../assets/images/before-afters/14/1.png";
 
 const BeforeAfter = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [, setForceUpdate] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [slidesPerView, setSlidesPerView] = useState(3);
+
+  // Window resize listener
+  useEffect(() => {
+    const handleResize = () => {
+      const newSlidesPerView =
+        window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
+      setSlidesPerView(newSlidesPerView);
+    };
+
+    handleResize(); // Initial call
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // Görseller listesi - 14 adet before-after
   const results = [
@@ -43,180 +54,142 @@ const BeforeAfter = () => {
   // Sonraki slide - Infinite loop
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % results.length);
-    setForceUpdate((prev) => prev + 1);
   };
 
   // Önceki slide - Infinite loop
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev - 1 + results.length) % results.length);
-    setForceUpdate((prev) => prev + 1);
   };
-
-  // Gösterilecek görseller sayısı - Responsive
-  const getSlidesPerView = () => {
-    if (typeof window === "undefined") return 3;
-    return window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
-  };
-
-  const slidesPerView = getSlidesPerView();
 
   return (
-    <>
-      <section
-        id="before-after"
-        className="py-20 bg-gradient-to-b from-white to-gray-50"
-      >
-        <div className="container mx-auto px-4">
-          {/* Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-navy mb-4">
-              Before & After
-              <span className="block text-golden mt-2">Real Results</span>
-            </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              See the amazing transformations of our satisfied patients. Real
-              results, real confidence.
-            </p>
-          </div>
+    <section
+      id="before-after"
+      className="py-20 bg-gradient-to-b from-white to-gray-50"
+    >
+      <div className="container mx-auto px-4">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-navy mb-4">
+            Before & After
+            <span className="block text-golden mt-2">Real Results</span>
+          </h2>
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            See the amazing transformations of our satisfied patients. Real
+            results, real confidence.
+          </p>
+        </div>
 
-          {/* Carousel Container */}
-          <div className="relative max-w-7xl mx-auto">
-            {/* Navigation Buttons - Her zaman aktif (infinite) */}
-            <button
-              onClick={prevSlide}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-4 rounded-full shadow-xl transition-all duration-300 -translate-x-6 bg-white hover:bg-golden hover:text-white text-navy"
-              aria-label="Previous"
+        {/* Carousel Container */}
+        <div className="relative max-w-7xl mx-auto">
+          {/* Navigation Buttons - Her zaman aktif (infinite) */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-4 rounded-full shadow-xl transition-all duration-300 -translate-x-6 bg-white hover:bg-golden hover:text-white text-navy"
+            aria-label="Previous"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
             >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-            </button>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
 
-            <button
-              onClick={nextSlide}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-4 rounded-full shadow-xl transition-all duration-300 translate-x-6 bg-white hover:bg-golden hover:text-white text-navy"
-              aria-label="Next"
+          <button
+            onClick={nextSlide}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-4 rounded-full shadow-xl transition-all duration-300 translate-x-6 bg-white hover:bg-golden hover:text-white text-navy"
+            aria-label="Next"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
             >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </button>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
 
-            {/* Slides Wrapper - Classic Carousel */}
-            <div className="overflow-hidden">
-              <div
-                className="flex transition-transform duration-500 ease-out gap-6"
-                style={{
-                  transform: `translateX(-${
-                    currentIndex * (100 / slidesPerView)
-                  }%)`,
-                }}
-              >
-                {results.map((result, idx) => (
-                  <div
-                    key={idx}
-                    className="flex-shrink-0"
-                    style={{
-                      width: `calc(${100 / slidesPerView}% - ${
-                        ((slidesPerView - 1) * 24) / slidesPerView
-                      }px)`,
-                    }}
-                  >
-                    {/* Card Container */}
-                    <div className="bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl h-full flex flex-col">
-                      {/* Image Container - Tam görünüm, kesme yok */}
-                      <div className="relative w-full bg-gray-50 flex-1">
-                        <img
-                          src={result.image}
-                          alt={
-                            result.title || `Before & After Result ${idx + 1}`
-                          }
-                          className="w-full h-full object-contain"
-                        />
-                      </div>
-
-                      {/* Info Section */}
-                      <div className="p-6 bg-gradient-to-r from-navy to-navy/90">
-                        <div className="flex items-center justify-between text-white">
-                          <div>
-                            <p className="text-sm font-medium text-golden mb-1">
-                              {result.title}
-                            </p>
-                            <p className="text-xl font-bold">
-                              {result.month} Months Result
-                            </p>
-                          </div>
-                          <div className="bg-golden/20 backdrop-blur-sm px-3 py-1.5 rounded-full">
-                            <span className="text-xs font-semibold">
-                              ✓ Verified
-                            </span>
-                          </div>
-                        </div>
-                      </div>
+          {/* Slides Wrapper - Classic Carousel */}
+          <div className="overflow-hidden px-4 md:px-0">
+            <div
+              className="flex transition-transform duration-500 ease-out"
+              style={{
+                transform: `translateX(-${
+                  currentIndex * (100 / slidesPerView)
+                }%)`,
+                gap: slidesPerView === 1 ? "0" : "24px",
+              }}
+            >
+              {results.map((result, idx) => (
+                <div
+                  key={idx}
+                  className="flex-shrink-0 px-3 md:px-0"
+                  style={{
+                    width:
+                      slidesPerView === 1
+                        ? "100%"
+                        : `calc(${100 / slidesPerView}% - ${
+                            ((slidesPerView - 1) * 24) / slidesPerView
+                          }px)`,
+                  }}
+                >
+                  {/* Card Container */}
+                  <div className="bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl mx-auto max-w-md md:max-w-none">
+                    {/* Image - Tam görünüm, info section yok */}
+                    <div className="relative w-full">
+                      <img
+                        src={result.image}
+                        alt={result.title || `Before & After Result ${idx + 1}`}
+                        className="w-full h-auto object-contain"
+                      />
                     </div>
                   </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Indicators */}
-            <div className="flex justify-center items-center gap-2 mt-12">
-              {results.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentIndex(idx)}
-                  className={`transition-all duration-300 rounded-full ${
-                    idx === currentIndex
-                      ? "bg-golden w-8 h-2"
-                      : "bg-gray-300 w-2 h-2 hover:bg-gray-400"
-                  }`}
-                  aria-label={`Go to slide ${idx + 1}`}
-                />
+                </div>
               ))}
             </div>
           </div>
 
-          {/* Bottom CTA */}
-          <div className="text-center mt-16">
-            <p className="text-gray-600 mb-6 text-lg">
-              Ready to start your own transformation journey?
-            </p>
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="bg-golden hover:bg-golden/90 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg"
-            >
-              Get Your Free Consultation
-            </button>
+          {/* Indicators */}
+          <div className="flex justify-center items-center gap-2 mt-12">
+            {results.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentIndex(idx)}
+                className={`transition-all duration-300 rounded-full ${
+                  idx === currentIndex
+                    ? "bg-golden w-8 h-2"
+                    : "bg-gray-300 w-2 h-2 hover:bg-gray-400"
+                }`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
           </div>
         </div>
-      </section>
 
-      {/* Consultation Modal */}
-      <ConsultationModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
-    </>
+        {/* Bottom CTA */}
+        <div className="text-center mt-16">
+          <p className="text-gray-600 mb-6 text-lg">
+            Ready to start your own transformation journey?
+          </p>
+          <button className="bg-golden hover:bg-golden/90 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg">
+            Get Your Free Consultation
+          </button>
+        </div>
+      </div>
+    </section>
   );
 };
 
